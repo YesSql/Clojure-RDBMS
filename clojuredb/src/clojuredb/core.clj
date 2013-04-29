@@ -1,5 +1,7 @@
 (ns user
-  (:require [clojure.java.jdbc :as sql])
+  (:require [clojure.java.jdbc :as sql]
+            [clojure.java.jdbc.sql :as dsl]
+             )
 )
 
 (def db {:classname "com.mysql.jdbc.Driver"
@@ -20,11 +22,45 @@
   )
 )
 
+
+
 (defn list-people []
   (sql/with-connection db
     (sql/with-query-results rows
-      ["select person_id, person_name from person"]
+      [(str "select a.person_name, b.skill_name, c.years_experience from person a, skill b, person_skill c"
+            " where a.person_id = c.person_id "
+            " and c.skill_id = b.skill_id")]
       (println rows))))
+
+
+;;redefine list-people with the SQL dsl
+(defn list-people []
+  (println (sql/query db
+      (dsl/select [:person.person_name :skill.skill_name :years_experience] :person
+      (dsl/join :person_skill {:person.person_id :person_skill.person_id})
+      (dsl/join :skill {:skill.skill_id :person_skill.skill_id})
+))))
+
+
+(defn list-projects []
+  (sql/with-connection db
+    (sql/with-query-results rows
+      [(str "select a.project_name, b.skill_name, c.years_experience from project a, skill b, project_skill c"
+         " where a.project_id = c.project_id "
+         " and c.skill_id = b.skill_id")]
+      (println rows)
+      )
+    )
+ )
+
+;;redefine list-projects with SQL dsl
+(defn list-projects []
+  (sql/with-connection db
+    (println (sql/query db
+      (dsl/select [:project_name :skill_name :years_experience] :project
+        (dsl/join :project_skill {:project.project_id :project_skill.project_id})
+        (dsl/join :skill {:project_skill.skill_id :skill.skill_id}))))))
+
 
 (defn insert-person [name]
   (sql/insert! db :person [:person_name] [name])
@@ -47,6 +83,8 @@
       )
     )
   )
+
+
 
 (defn assign-skill-to-project [db person-name skill-name years-experience]
   (sql/with-connection db
@@ -108,4 +146,6 @@
     )
 
     (addData db)
+    (list-people)
+    (list-projects)
   )
