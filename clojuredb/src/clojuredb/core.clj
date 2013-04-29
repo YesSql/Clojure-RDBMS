@@ -39,22 +39,22 @@
   )
 
 (defn assign-skill-to-person [db person-name skill-name years-experience]
-  (sql/execute! db
-    [(str "insert into person_skill (person_id, skill_id, years_experience) values ("
+  (sql/with-connection db
+    (sql/do-prepared
+      (str "insert into person_skill (person_id, skill_id, years_experience) values ("
           "(select person_id from person where person_name = ?),"
-          "(select skill_id from skill where skill_name = ?),?)")
-          person-name skill-name years-experience]
-
+          "(select skill_id from skill where skill_name = ?),?)")[person-name skill-name years-experience]
+      )
     )
   )
 
 (defn assign-skill-to-project [db person-name skill-name years-experience]
-  (sql/execute! db
-    [(str "insert into project_skill (project_id, skill_id, years_experience) values ("
-       "(select project_id from project where project_name = ?),"
-       "(select skill_id from skill where skill_name = ?),?)")
-     person-name skill-name years-experience]
-
+  (sql/with-connection db
+    (sql/do-prepared
+      (str "insert into project_skill (project_id, skill_id, years_experience) values ("
+        "(select project_id from project where project_name = ?),"
+        "(select skill_id from skill where skill_name = ?),?)") [person-name skill-name years-experience]
+     )
     )
   )
 
