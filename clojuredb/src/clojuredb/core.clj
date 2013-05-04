@@ -1,6 +1,5 @@
-(ns user
+(ns clojuredb.core
   (:require [clojure.java.jdbc :as jdbc] [clojure.java.jdbc.sql :as dsl]))
-
 
 
 (def db {:classname "com.mysql.jdbc.Driver"
@@ -10,30 +9,42 @@
          :password "letmein"
          })
 
-(defn list-people []
-  (jdbc/with-connection db
-    (jdbc/with-query-results rows
-      [(str "select a.person_name, b.skill_name, c.years_experience from person a, skill b, person_skill c"
-            " where a.person_id = c.person_id "
-            " and c.skill_id = b.skill_id")]
-      (println rows))))
 
+(defn list-skills
+  []
+  (jdbc/with-connection db
+    (jdbc/query db
+      (dsl/select [:skill_name] :skill))))
 
 ;;redefine list-people with the SQL dsl
 (defn list-people []
   (jdbc/with-connection db
-  (jdbc/query db
+    (jdbc/query db
       (dsl/select [:person.person_name :skill.skill_name :years_experience] :person
         (dsl/join :person_skill {:person.person_id :person_skill.person_id})
         (dsl/join :skill {:skill.skill_id :person_skill.skill_id})))))
 
+(defn dump-table
+  [column table]
+  (jdbc/with-connection db
+    (jdbc/query db
+      (dsl/select [column] table))))
+
+;;redefine with left outer joins necessary to skillless people
+(defn list-people []
+  (jdbc/with-connection db
+    (jdbc/query db
+      [(str " select a.person_name, c.skill_name, b.years_experience
+             from person a
+             left outer join person_skill b on a.person_id = b.person_id
+             left outer join skill c on b.skill_id = c.skill_id")])))
 
 (defn list-projects []
   (jdbc/with-connection db
     (jdbc/with-query-results rows
-      [(str "select a.project_name, b.skill_name, c.years_experience from project a, skill b, project_skill c"
-         " where a.project_id = c.project_id "
-         " and c.skill_id = b.skill_id")]
+      [(str "select a.project_name, b.skill_name, c.years_experience from project a, skill b, project_skill c
+          where a.project_id = c.project_id
+          and c.skill_id = b.skill_id")]
       (println rows))))
 
 ;;redefine list-projects with SQL dsl

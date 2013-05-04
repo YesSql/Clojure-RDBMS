@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="Clojure" name="Clojure">
+      <configuration />
+    </facet>
+  </component>
   <component name="NewModuleRootManager" inherit-compiler-output="false">
     <output url="file://$MODULE_DIR$/target/classes" />
     <output-test url="file://$MODULE_DIR$/target/classes" />
@@ -11,9 +16,34 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Leiningen: compojure:compojure:1.1.5" level="project" />
+    <orderEntry type="library" name="Leiningen: enlive:enlive:1.0.0" level="project" />
     <orderEntry type="library" name="Leiningen: mysql:mysql-connector-java:5.1.6" level="project" />
     <orderEntry type="library" name="Leiningen: org.clojure:clojure:1.5.1" level="project" />
     <orderEntry type="library" name="Leiningen: org.clojure:java.jdbc:0.3.0-alpha1" level="project" />
+    <orderEntry type="library" name="Leiningen: ring:ring:1.0.1" level="project" />
+    <orderEntry type="library" name="Leiningen: clout:clout:1.0.1" level="project" />
+    <orderEntry type="library" name="Leiningen: org.clojure:core.incubator:0.1.0" level="project" />
+    <orderEntry type="library" name="Leiningen: org.clojure:tools.macro:0.1.0" level="project" />
+    <orderEntry type="library" name="Leiningen: ring:ring-core:1.1.7" level="project" />
+    <orderEntry type="library" name="Leiningen: clj-time:clj-time:0.3.7" level="project" />
+    <orderEntry type="library" name="Leiningen: commons-codec:commons-codec:1.6" level="project" />
+    <orderEntry type="library" name="Leiningen: commons-fileupload:commons-fileupload:1.2.1" level="project" />
+    <orderEntry type="library" name="Leiningen: commons-io:commons-io:2.1" level="project" />
+    <orderEntry type="library" name="Leiningen: javax.servlet:servlet-api:2.5" level="project" />
+    <orderEntry type="library" name="Leiningen: joda-time:joda-time:2.0" level="project" />
+    <orderEntry type="library" name="Leiningen: org.ccil.cowan.tagsoup:tagsoup:1.2" level="project" />
+    <orderEntry type="library" name="Leiningen: ring:ring-devel:1.0.1" level="project" />
+    <orderEntry type="library" name="Leiningen: ring:ring-jetty-adapter:1.0.1" level="project" />
+    <orderEntry type="library" name="Leiningen: ring:ring-servlet:1.0.1" level="project" />
+    <orderEntry type="library" name="Leiningen: clj-stacktrace:clj-stacktrace:0.2.2" level="project" />
+    <orderEntry type="library" name="Leiningen: hiccup:hiccup:0.3.7" level="project" />
+    <orderEntry type="library" name="Leiningen: ns-tracker:ns-tracker:0.1.1" level="project" />
+    <orderEntry type="library" name="Leiningen: org.clojure:tools.namespace:0.1.0" level="project" />
+    <orderEntry type="library" name="Leiningen: org.clojure:java.classpath:0.1.0" level="project" />
+    <orderEntry type="library" name="Leiningen: org.mortbay.jetty:jetty-util:6.1.25" level="project" />
+    <orderEntry type="library" name="Leiningen: org.mortbay.jetty:jetty:6.1.25" level="project" />
+    <orderEntry type="library" name="Leiningen: org.mortbay.jetty:servlet-api:2.5-20081211" level="project" />
   </component>
 </module>
 

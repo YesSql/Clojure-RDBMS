@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Poachables </title>
+</head>
+<body>
+      <h1> Poachables </h1>
+      <ul id="list_people">
+          <li> <div>Person here</div></li>
+      </ul>
+      <form method="POST" action="/postPoachable">
+          <input type="text" name = "person_name" />
+          <input type ="submit" value= "Pester!"/>
+      </form>
+
+       <h2> Assign skills to candidate </h2>
+
+        <form method = "POST" action="/postPersonSkill">
+            name: <select id = "peopleSelector">
+                <option> </option>
+            </select>
+            skill: <select id = "skillSelector">
+                <option> </option>
+            </select>
+            years: <input type = "number" id = "years" />
+        </form>
+
+</body>
+</html>
