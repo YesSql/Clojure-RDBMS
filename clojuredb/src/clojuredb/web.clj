@@ -16,18 +16,23 @@
 
 (defn get-people-skills
   [name]
-  (map :skill_name (filter #(= (% :person_name) name) (clojuredb.core/list-people))))
+  (map get-skill-and-experience (filter #(= (% :person_name) name) (clojuredb.core/list-people))))
 
 (defn get-project-skills
   [name]
-  (map :skill_name (filter #(= (% :project_name) name) (clojuredb.core/list-projects))))
+  (map get-skill-and-experience (filter #(= (% :project_name) name) (clojuredb.core/list-projects))))
+
+
+(defn get-skill-and-experience [project]
+  (str  (:skill_name project)" (" (:years_experience project) ")"))
 
 
 (en/deftemplate listpeople
   (en/xml-resource "people.htm")
   [request]
   [:#list_people :li]
-  (en/clone-for [ {:keys [person_name]} (clojuredb.core/dump-table :person_name :person)] [:div] (en/content (str person_name " - " (clojure.string/join ", "(get-people-skills person_name)))))
+  (en/clone-for [ {:keys [person_name]} (clojuredb.core/dump-table :person_name :person)] [:#person_name] (en/content (str person_name))
+                                                                                          [:#person_skills] (en/content (str " - " (clojure.string/join ", "(get-people-skills person_name)))))
 
   [:#peopleSelector :option]
   (en/clone-for [ {:keys [person_name]} (clojuredb.core/dump-table :person_name :person)] [:option] (en/content person_name))
@@ -38,7 +43,9 @@
 (en/deftemplate listprojects
   (en/xml-resource "projects.htm")
   [request]
-  [:#list_projects :li] (en/clone-for [ {:keys [project_name]} (clojuredb.core/dump-table :project_name :project)] [:div] (en/content (str project_name " - " (clojure.string/join ", "(get-project-skills project_name)))))
+  [:#list_projects :li] (en/clone-for [ {:keys [project_name]} (clojuredb.core/dump-table :project_name :project)]
+                                                                                          [:#project_name] (en/content (str project_name))
+                                                                                          [:#project_skills](en/content (str " - " (clojure.string/join ", "(get-project-skills project_name)))))
 
   [:#projectSelector :option]
   (en/clone-for [ {:keys [project_name]} (clojuredb.core/dump-table :project_name :project)] [:option] (en/content project_name))

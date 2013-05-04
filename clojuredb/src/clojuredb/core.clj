@@ -35,8 +35,8 @@
     (jdbc/query db
       [(str " select a.person_name, c.skill_name, b.years_experience
              from person a
-             left outer join person_skill b on a.person_id = b.person_id
-             left outer join skill c on b.skill_id = c.skill_id")])))
+             inner join person_skill b on a.person_id = b.person_id
+             inner join skill c on b.skill_id = c.skill_id")])))
 
 (defn list-projects []
   (jdbc/with-connection db
