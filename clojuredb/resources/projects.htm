@@ -13,5 +13,18 @@
           <input type ="submit" value= "Post Project!"/>
       </form>
 
+      <h2> Assign required skill to project </h2>
+
+      <form method = "POST" action="/postProjectSkill">
+          name: <select id = "projectSelector" name="project_name">
+          <option> </option>
+      </select>
+          skill: <select id = "skillSelector" name = "skill_name">
+          <option> </option>
+      </select>
+          years: <input type = "number" id = "years" name = "years"/>
+          <input type="submit" value="increase headhunter fees" />
+      </form>
+
 </body>
 </html>

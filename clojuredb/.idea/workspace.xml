@@ -4,7 +4,7 @@
     <list default="true" id="69ba59db-e93a-4bad-ad52-85373a3eaa01" name="Default" comment="" />
     <ignored path="clojuredb.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Clojure REPL" changelist="69ba59db-e93a-4bad-ad52-85373a3eaa01" time="1367635309986" ignored="false" />
+    <file path="/Clojure REPL" changelist="69ba59db-e93a-4bad-ad52-85373a3eaa01" time="1367635913215" ignored="false" />
     <file path="/core.clj" changelist="69ba59db-e93a-4bad-ad52-85373a3eaa01" time="1367611579371" ignored="false" />
     <file path="/handler.clj" changelist="69ba59db-e93a-4bad-ad52-85373a3eaa01" time="1367243457701" ignored="false" />
     <file path="$PROJECT_DIR$/../../../hello-world/project.clj" changelist="69ba59db-e93a-4bad-ad52-85373a3eaa01" time="1367266185913" ignored="false" />
@@ -19,12 +19,12 @@
     <file path="C:/code/trunk/Host/Android/Mobile Mod Cal/res/layout/load_settings_files.xml" changelist="69ba59db-e93a-4bad-ad52-85373a3eaa01" time="1367267924709" ignored="false" />
     <file path="$APPLICATION_HOME_DIR$/plugins/android/lib/android.jar!/org/jetbrains/android/android.xsd" changelist="69ba59db-e93a-4bad-ad52-85373a3eaa01" time="1367268082892" ignored="false" />
     <file path="/core_test.clj" changelist="69ba59db-e93a-4bad-ad52-85373a3eaa01" time="1367289427023" ignored="false" />
-    <file path="/web.clj" changelist="69ba59db-e93a-4bad-ad52-85373a3eaa01" time="1367635086959" ignored="false" />
+    <file path="/web.clj" changelist="69ba59db-e93a-4bad-ad52-85373a3eaa01" time="1367635785715" ignored="false" />
     <file path="/index.htm" changelist="69ba59db-e93a-4bad-ad52-85373a3eaa01" time="1367609653013" ignored="false" />
     <file path="/people.htm" changelist="69ba59db-e93a-4bad-ad52-85373a3eaa01" time="1367634413188" ignored="false" />
     <file path="/index.html" changelist="69ba59db-e93a-4bad-ad52-85373a3eaa01" time="1367632331813" ignored="false" />
     <file path="/list.htm" changelist="69ba59db-e93a-4bad-ad52-85373a3eaa01" time="1367610400987" ignored="false" />
-    <file path="/projects.htm" changelist="69ba59db-e93a-4bad-ad52-85373a3eaa01" time="1367610537313" ignored="false" />
+    <file path="/projects.htm" changelist="69ba59db-e93a-4bad-ad52-85373a3eaa01" time="1367635461137" ignored="false" />
     <file path="/skills.htm" changelist="69ba59db-e93a-4bad-ad52-85373a3eaa01" time="1367611021990" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -78,7 +78,7 @@
     </breakpoint_any>
     <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <line_breakpoints>
-      <breakpoint url="file://$PROJECT_DIR$/src/clojuredb/web.clj" line="42" class="Class at web.clj:26" package="">
+      <breakpoint url="file://$PROJECT_DIR$/src/clojuredb/web.clj" line="48" class="Class at web.clj:26" package="">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -103,19 +103,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="core.clj" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="core.clj" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/clojuredb/core.clj">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="103" column="19" selection-start="3676" selection-end="3676" vertical-scroll-proportion="0.0">
+            <state line="52" column="21" selection-start="1659" selection-end="1659" vertical-scroll-proportion="0.39534885">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="web.clj" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="web.clj" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/clojuredb/web.clj">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="12" selection-start="1730" selection-end="1730" vertical-scroll-proportion="1.4257603">
+            <state line="53" column="19" selection-start="1830" selection-end="1830" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="projects.htm" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/projects.htm">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="69" selection-start="411" selection-end="411" vertical-scroll-proportion="-7.423077">
               <folding />
             </state>
           </provider>
@@ -124,7 +133,7 @@
       <file leaf-file-name="people.htm" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/people.htm">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="68" selection-start="780" selection-end="780" vertical-scroll-proportion="-14.961538">
+            <state line="26" column="24" selection-start="364" selection-end="851" vertical-scroll-proportion="-14.615385">
               <folding />
             </state>
           </provider>
@@ -157,12 +166,12 @@
         <option value="$PROJECT_DIR$/resources/index.htm" />
         <option value="$PROJECT_DIR$/resources/public/list.htm.html" />
         <option value="$PROJECT_DIR$/resources/list.htm" />
-        <option value="$PROJECT_DIR$/resources/projects.htm" />
         <option value="$PROJECT_DIR$/resources/index.html" />
         <option value="$PROJECT_DIR$/resources/skills.htm" />
         <option value="$PROJECT_DIR$/resources/people.htm" />
-        <option value="$PROJECT_DIR$/src/clojuredb/core.clj" />
+        <option value="$PROJECT_DIR$/resources/projects.htm" />
         <option value="$PROJECT_DIR$/src/clojuredb/web.clj" />
+        <option value="$PROJECT_DIR$/src/clojuredb/core.clj" />
       </list>
     </option>
   </component>
@@ -620,16 +629,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/projects.htm">
+    <entry file="file://$PROJECT_DIR$/project.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="65" selection-start="346" selection-end="346" vertical-scroll-proportion="0.38273922">
+        <state line="9" column="31" selection-start="445" selection-end="445" vertical-scroll-proportion="0.15254237">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project.clj">
+    <entry file="file://$PROJECT_DIR$/resources/people.htm">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="31" selection-start="445" selection-end="445" vertical-scroll-proportion="0.15254237">
+        <state line="26" column="24" selection-start="364" selection-end="851" vertical-scroll-proportion="-14.615385">
           <folding />
         </state>
       </provider>
@@ -641,23 +650,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/people.htm">
+    <entry file="file://$PROJECT_DIR$/resources/projects.htm">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="68" selection-start="780" selection-end="780" vertical-scroll-proportion="-14.961538">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/clojuredb/core.clj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="103" column="19" selection-start="3676" selection-end="3676" vertical-scroll-proportion="0.0">
+        <state line="15" column="69" selection-start="411" selection-end="411" vertical-scroll-proportion="-7.423077">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/clojuredb/web.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="12" selection-start="1730" selection-end="1730" vertical-scroll-proportion="1.4257603">
+        <state line="53" column="19" selection-start="1830" selection-end="1830" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/clojuredb/core.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="21" selection-start="1659" selection-end="1659" vertical-scroll-proportion="0.39534885">
           <folding />
         </state>
       </provider>

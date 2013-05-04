@@ -9,7 +9,6 @@
          :password "letmein"
          })
 
-
 (defn list-skills
   []
   (jdbc/with-connection db
@@ -50,10 +49,10 @@
 ;;redefine list-projects with SQL dsl
 (defn list-projects []
   (jdbc/with-connection db
-    jdbc/query db
+    (jdbc/query db
       (dsl/select [:project_name :skill_name :years_experience] :project
         (dsl/join :project_skill {:project.project_id :project_skill.project_id})
-        (dsl/join :skill {:project_skill.skill_id :skill.skill_id}))))
+        (dsl/join :skill {:project_skill.skill_id :skill.skill_id})))))
 
 
 (defn insert-person [name]
@@ -81,7 +80,7 @@
                              (dsl/select :skill_id :skill (dsl/where {:skill_name skill-name}))
                              years-experience]))))
 
-(defn assign-skill-to-project [db person-name skill-name years-experience]
+(defn assign-skill-to-project [person-name skill-name years-experience]
   (jdbc/with-connection db
     (jdbc/do-prepared
       (str "insert into project_skill (project_id, skill_id, years_experience) values ("
