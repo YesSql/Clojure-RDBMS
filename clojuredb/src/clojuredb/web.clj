@@ -18,7 +18,13 @@
   (en/xml-resource "people.htm")
   [request]
   [:#list_people :li]
-  (en/clone-for [ {:keys [person_name]} (clojuredb.core/dump-table :person_name :person)] [:div] (en/content person_name)))
+  (en/clone-for [ {:keys [person_name]} (clojuredb.core/dump-table :person_name :person)] [:div] (en/content person_name))
+
+  [:#peopleSelector :option]
+  (en/clone-for [ {:keys [person_name]} (clojuredb.core/dump-table :person_name :person)] [:option] (en/content person_name))
+
+  [:#skillSelector :option]
+  (en/clone-for [ {:keys [skill_name]} (clojuredb.core/dump-table :skill_name :skill)] [:option] (en/content skill_name)))
 
 (en/deftemplate listprojects
   (en/xml-resource "projects.htm")
@@ -45,6 +51,10 @@
   [name]
   (clojuredb.core/insert-project name))
 
+(defn assign-skill
+  [person skill years]
+  (clojuredb.core/assign-skill-to-person person skill (Integer/parseInt years)))
+
 (defroutes app*
   (compojure.route/resources "/")
   (GET "/" request (homepage request))
@@ -54,6 +64,7 @@
   (POST "/postPoachable" request (post-poachable (-> request :params :person_name)) (response/redirect "/people"))
   (POST "/postProject" request (post-project (-> request :params :project_name)) (response/redirect "/projects"))
   (POST "/postSkill" request (post-skill (-> request :params :skill_name)) (response/redirect "/skills"))
+  (POST "/postPersonSkill" request (assign-skill (-> request :params :person_name) (-> request :params :skill_name) (-> request :params :years)) (response/redirect "/people"))
   )
 
 (def app (compojure.handler/site app*))

@@ -16,13 +16,14 @@
        <h2> Assign skills to candidate </h2>
 
         <form method = "POST" action="/postPersonSkill">
-            name: <select id = "peopleSelector">
+            name: <select id = "peopleSelector" name="person_name">
                 <option> </option>
             </select>
-            skill: <select id = "skillSelector">
+            skill: <select id = "skillSelector" name = "skill_name">
                 <option> </option>
             </select>
-            years: <input type = "number" id = "years" />
+            years: <input type = "number" id = "years" name = "years"/>
+            <input type="submit" value="upgrade" />
         </form>
 
 </body>

@@ -65,7 +65,7 @@
 (defn insert-skill [name]
   (jdbc/insert! db :skill [:skill_name] [name]))
 
-(defn assign-skill-to-person [db person-name skill-name years-experience]
+(defn assign-skill-to-person [person-name skill-name years-experience]
   (jdbc/with-connection db
     (jdbc/do-prepared
       (str "insert into person_skill (person_id, skill_id, years_experience) values ("
@@ -97,9 +97,9 @@
     (insert-skill "Thinking")
     (insert-skill "Writing"))
 
-  (assign-skill-to-person db "Rich" "Thinking" 10)
-  (assign-skill-to-person db "Stuart" "Writing" 5)
-  (assign-skill-to-project db "Datomic" "Thinking" 4))
+  (assign-skill-to-person "Rich" "Thinking" 10)
+  (assign-skill-to-person "Stuart" "Writing" 5)
+  (assign-skill-to-project "Datomic" "Thinking" 4))
 
 (defn run []
   (jdbc/with-connection db
