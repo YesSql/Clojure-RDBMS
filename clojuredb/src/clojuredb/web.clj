@@ -14,11 +14,20 @@
   [request]
   )
 
+(defn get-people-skills
+  [name]
+  (map :skill_name (filter #(= (% :person_name) name) (clojuredb.core/list-people))))
+
+(defn get-project-skills
+  [name]
+  (map :skill_name (filter #(= (% :project_name) name) (clojuredb.core/list-projects))))
+
+
 (en/deftemplate listpeople
   (en/xml-resource "people.htm")
   [request]
   [:#list_people :li]
-  (en/clone-for [ {:keys [person_name]} (clojuredb.core/dump-table :person_name :person)] [:div] (en/content person_name))
+  (en/clone-for [ {:keys [person_name]} (clojuredb.core/dump-table :person_name :person)] [:div] (en/content (str person_name " - " (clojure.string/join ", "(get-people-skills person_name)))))
 
   [:#peopleSelector :option]
   (en/clone-for [ {:keys [person_name]} (clojuredb.core/dump-table :person_name :person)] [:option] (en/content person_name))
@@ -29,7 +38,7 @@
 (en/deftemplate listprojects
   (en/xml-resource "projects.htm")
   [request]
-  [:#list_projects :li] (en/clone-for [ {:keys [project_name]} (clojuredb.core/dump-table :project_name :project)] [:div] (en/content project_name))
+  [:#list_projects :li] (en/clone-for [ {:keys [project_name]} (clojuredb.core/dump-table :project_name :project)] [:div] (en/content (str project_name " - " (clojure.string/join ", "(get-project-skills project_name)))))
 
   [:#projectSelector :option]
   (en/clone-for [ {:keys [project_name]} (clojuredb.core/dump-table :project_name :project)] [:option] (en/content project_name))
@@ -41,8 +50,6 @@
   (en/xml-resource "skills.htm")
   [request]
   [:#list_skills :li] (en/clone-for [ {:keys [skill_name]} (clojuredb.core/dump-table :skill_name :skill)] [:div] (en/content skill_name)))
-
-
 
 
 (defn post-poachable
