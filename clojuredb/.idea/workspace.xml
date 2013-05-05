@@ -4,8 +4,8 @@
     <list default="true" id="69ba59db-e93a-4bad-ad52-85373a3eaa01" name="Default" comment="" />
     <ignored path="clojuredb.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Clojure REPL" changelist="69ba59db-e93a-4bad-ad52-85373a3eaa01" time="1367643259369" ignored="false" />
-    <file path="/core.clj" changelist="69ba59db-e93a-4bad-ad52-85373a3eaa01" time="1367643254755" ignored="false" />
+    <file path="/Clojure REPL" changelist="69ba59db-e93a-4bad-ad52-85373a3eaa01" time="1367724654126" ignored="false" />
+    <file path="/core.clj" changelist="69ba59db-e93a-4bad-ad52-85373a3eaa01" time="1367724621076" ignored="false" />
     <file path="/handler.clj" changelist="69ba59db-e93a-4bad-ad52-85373a3eaa01" time="1367243457701" ignored="false" />
     <file path="$PROJECT_DIR$/../../../hello-world/project.clj" changelist="69ba59db-e93a-4bad-ad52-85373a3eaa01" time="1367266185913" ignored="false" />
     <file path="$PROJECT_DIR$/../../../hello-world/test/hello_world/test/handler.clj" changelist="69ba59db-e93a-4bad-ad52-85373a3eaa01" time="1367266313795" ignored="false" />
@@ -106,7 +106,7 @@
       <file leaf-file-name="core.clj" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/clojuredb/core.clj">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="42" selection-start="967" selection-end="967" vertical-scroll-proportion="0.69588554">
+            <state line="66" column="0" selection-start="2094" selection-end="2770" vertical-scroll-proportion="0.034764826">
               <folding />
             </state>
           </provider>
@@ -179,7 +179,7 @@
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
-    <option name="height" value="1186" />
+    <option name="height" value="1066" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -474,7 +474,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1186" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -492,8 +492,8 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.50641656" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25213677" sideWeight="0.5685131" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.43148687" sideWeight="0.72649574" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25213677" sideWeight="0.56655663" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.43344334" sideWeight="0.72649574" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -666,7 +666,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/clojuredb/core.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="42" selection-start="967" selection-end="967" vertical-scroll-proportion="0.69588554">
+        <state line="66" column="0" selection-start="2094" selection-end="2770" vertical-scroll-proportion="0.034764826">
           <folding />
         </state>
       </provider>

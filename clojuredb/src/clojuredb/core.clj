@@ -66,10 +66,15 @@
 
 (defn assign-skill-to-person [person-name skill-name years-experience]
   (jdbc/with-connection db
-    (jdbc/do-prepared
-      (str "insert into person_skill (person_id, skill_id, years_experience) values ("
-          "(select person_id from person where person_name = ?),"
-          "(select skill_id from skill where skill_name = ?),?)")[person-name skill-name years-experience])))
+    (jdbc/transaction
+      (jdbc/do-prepared
+        (str "delete from person_skill where person_id = (select person_id from person where person_name = ?)
+                                       and skill_id = (select skill_id from skill where skill_name = ?)") [person-name skill-name])
+
+      (jdbc/do-prepared
+        (str "insert into person_skill (person_id, skill_id, years_experience) values (
+            (select person_id from person where person_name = ?),
+            (select skill_id from skill where skill_name = ?),?)")[person-name skill-name years-experience]))))
 
 
 (defn assign-skill-to-person_BROKEN [db person-name skill-name years-experience]
