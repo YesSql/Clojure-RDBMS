@@ -14,6 +14,9 @@
   [request]
   )
 
+(defn get-skill-and-experience [project]
+  (str  (:skill_name project)" (" (:years_experience project) ")"))
+
 (defn get-people-skills
   [name]
   (map get-skill-and-experience (filter #(= (% :person_name) name) (clojuredb.core/list-people))))
@@ -22,9 +25,6 @@
   [name]
   (map get-skill-and-experience (filter #(= (% :project_name) name) (clojuredb.core/list-projects))))
 
-
-(defn get-skill-and-experience [project]
-  (str  (:skill_name project)" (" (:years_experience project) ")"))
 
 
 (en/deftemplate listpeople
@@ -59,6 +59,12 @@
   [:#list_skills :li] (en/clone-for [ {:keys [skill_name]} (clojuredb.core/dump-table :skill_name :skill)] [:div] (en/content skill_name)))
 
 
+(en/deftemplate emails
+  (en/xml-resource "emails.htm")
+  [request]
+  [:#emails :div] (en/clone-for [ {:keys [project_name person_name match_strength]} (clojuredb.core/list-matches)] [:#person_name](en/content (str person_name (clojure.string/join (take match_strength (repeat "!")))))
+                                                                                                    [:#project_name] (en/content(str project_name))))
+
 (defn post-poachable
   [name]
   (clojuredb.core/insert-person name))
@@ -85,6 +91,7 @@
   (GET "/people" request (listpeople request))
   (GET "/projects" request (listprojects request))
   (GET "/skills" request (listskills request))
+  (GET "/emails" request (emails request))
   (POST "/postPoachable" request (post-poachable (-> request :params :person_name)) (response/redirect "/people"))
   (POST "/postProject" request (post-project (-> request :params :project_name)) (response/redirect "/projects"))
   (POST "/postSkill" request (post-skill (-> request :params :skill_name)) (response/redirect "/skills"))

@@ -38,6 +38,19 @@
              inner join person_skill b on a.person_id = b.person_id
              inner join skill c on b.skill_id = c.skill_id")])))
 
+(defn list-matches
+  []
+  (jdbc/with-connection db
+    (jdbc/query db
+      [(str "select person_name, project_name, count(*) as match_strength
+              from
+	                  person
+	                  inner join person_skill on person.person_id = person_skill.person_id
+                    inner join project_skill on person_skill.skill_id = project_skill.skill_id
+	                  inner join project on project_skill.project_id = project.project_id
+	                  inner join skill on skill.skill_id = project_skill.skill_id
+              group by project_name, person_name")])))
+
 (defn list-projects []
   (jdbc/with-connection db
     (jdbc/with-query-results rows
@@ -85,12 +98,18 @@
                              (dsl/select :skill_id :skill (dsl/where {:skill_name skill-name}))
                              years-experience]))))
 
-(defn assign-skill-to-project [person-name skill-name years-experience]
+(defn assign-skill-to-project [project-name skill-name years-experience]
   (jdbc/with-connection db
-    (jdbc/do-prepared
+    (jdbc/transaction
+      (jdbc/do-prepared
+        (str "delete from project_skill where project_id = (select project_id from project where project_name = ?)
+                                       and skill_id = (select skill_id from skill where skill_name = ?)") [project-name skill-name])
+      (jdbc/do-prepared
       (str "insert into project_skill (project_id, skill_id, years_experience) values ("
         "(select project_id from project where project_name = ?),"
-        "(select skill_id from skill where skill_name = ?),?)") [person-name skill-name years-experience])))
+        "(select skill_id from skill where skill_name = ?),?)") [project-name skill-name years-experience]))))
+
+
 
 
 (defn addData [db]
